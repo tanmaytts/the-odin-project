@@ -1,0 +1,164 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --danger: #ef4444;
+  --danger-dark: #dc2626;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 2rem;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+}
+
+/* Cards */
+#library,
+#add-book-form {
+  background: var(--card);
+  width: 100%;
+  max-width: 640px;
+  padding: 1.75rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Table */
+#book-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#book-table th,
+#book-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+#book-table thead th {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+#book-table tbody tr:nth-child(even) {
+  background: #fafafe;
+}
+
+#book-table tbody tr:hover {
+  background: #eef0ff;
+}
+
+#book-table tbody:empty::after {
+  content: "No books yet — add one!";
+  color: var(--muted);
+}
+
+/* Buttons */
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.05s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#add-book,
+#book-form button[type="submit"] {
+  background: var(--primary);
+  color: #fff;
+}
+
+#add-book:hover,
+#book-form button[type="submit"]:hover {
+  background: var(--primary-dark);
+}
+
+#cancel {
+  background: #e5e7eb;
+  color: var(--text);
+  margin-top: 0.5rem;
+}
+
+#cancel:hover {
+  background: #d1d5db;
+}
+
+.delete-btn {
+  background: var(--danger);
+  color: #fff;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.delete-btn:hover {
+  background: var(--danger-dark);
+}
+
+/* Form */
+#book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#book-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+#book-form input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  margin-bottom: 0.5rem;
+}
+
+#book-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Clean up the <br> spacing inside the form */
+#book-form br {
+  display: none;
+}
