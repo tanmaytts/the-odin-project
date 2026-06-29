@@ -80,7 +80,7 @@ h2 {
 }
 
 #book-table tbody:empty::after {
-  content: "No books yet — add one!";
+  content: "No books yet, add one!";
   color: var(--muted);
 }
 
