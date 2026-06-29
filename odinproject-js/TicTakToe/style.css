@@ -1,0 +1,126 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  padding: 5% 4%;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: #fff;
+}
+
+h1 {
+  font-size: 8vw;
+  margin: 0 0 4%;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.1em;
+}
+
+#setup {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2%;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#setup input {
+  flex: 1 1 30%;
+  min-width: 40%;
+  padding: 1.2% 2%;
+  font-size: 4vw;
+  border: none;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+#setup input::placeholder {
+  color: #888;
+}
+
+#submit {
+  flex: 1 1 100%;
+  margin-top: 2%;
+  padding: 1.4% 0;
+  font-size: 4.5vw;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: #ff6b6b;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+#submit:hover {
+  background: #ff4757;
+  transform: scale(1.03);
+}
+
+#players {
+  display: flex;
+  justify-content: center;
+  gap: 8%;
+  margin: 4% auto;
+  font-size: 5vw;
+}
+
+#player1-name {
+  color: #ffe066;
+  font-weight: bold;
+}
+
+#player2-name {
+  color: #4dd4ac;
+  font-weight: bold;
+}
+
+#Start-text {
+  font-size: 6vw;
+  margin: 3% auto;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+#gameboard {
+  width: 80%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  margin: 4% auto;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+#gameboard td {
+  width: 33.33%;
+  height: 33.33%;
+  border: 0.6vw solid rgba(255, 255, 255, 0.7);
+  font-size: 14vw;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+#gameboard td:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+@media (min-width: 600px) {
+  h1 { font-size: 48px; }
+  #setup input { font-size: 18px; }
+  #submit { font-size: 20px; }
+  #players { font-size: 28px; }
+  #Start-text { font-size: 32px; }
+  #gameboard td { font-size: 72px; border-width: 4px; }
+}

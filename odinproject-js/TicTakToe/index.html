@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tak Toe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Tic Tak Toe</h1>
+
+  <!-- Name entry: hidden by script once submitted -->
+  <div id="setup">
+    <input type="text" id="player1" placeholder="Player 1 (X)">
+    <input type="text" id="player2" placeholder="Player 2 (O)">
+    <button id="submit">Start Game</button>
+  </div>
+
+  <!-- players -->
+  <div id="players">
+    <span id="player1-name"></span>
+    <span id="player2-name"></span>
+  </div>
+
+  <!-- Status line: hidden until the game starts -->
+  <h2 id="Start-text" style="display: none;"></h2>
+
+  <!-- Board: cell IDs 1-9 match script.js (place - 1 indexing) -->
+  <table id="gameboard">
+    <tr>
+      <td id="1"></td>
+      <td id="2"></td>
+      <td id="3"></td>
+    </tr>
+    <tr>
+      <td id="4"></td>
+      <td id="5"></td>
+      <td id="6"></td>
+    </tr>
+    <tr>
+      <td id="7"></td>
+      <td id="8"></td>
+      <td id="9"></td>
+    </tr>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
