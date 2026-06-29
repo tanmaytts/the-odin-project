@@ -19,11 +19,23 @@ const player2 = new Player("", "O");
 
 let chance = 0;
 let gameOver = false;
+let gameStarted = false;
 
 const btn = document.getElementById("submit");
 btn.addEventListener("click", () => {
-    player1.name = document.getElementById("player1").value;
-    player2.name = document.getElementById("player2").value;
+    const name1 = document.getElementById("player1").value.trim();
+    const name2 = document.getElementById("player2").value.trim();
+
+    // don't start until both names are filled in
+    if (name1 === "" || name2 === "") {
+        document.getElementById("Start-text").style.display = "block";
+        document.getElementById("Start-text").innerHTML = "Please enter both names!";
+        return;
+    }
+
+    player1.name = name1;
+    player2.name = name2;
+    gameStarted = true;
     document.getElementById("player1").style.display = "none";
     document.getElementById("player2").style.display = "none";
     document.getElementById("submit").style.display = "none";
@@ -38,7 +50,7 @@ btn.addEventListener("click", () => {
 
 const table = document.getElementById("gameboard");
 table.addEventListener("click", (event) => {
-    if (gameOver) return;
+    if (!gameStarted || gameOver) return;
 
     const place = event.target.id;
 
