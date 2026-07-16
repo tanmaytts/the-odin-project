@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+
+        <h1>Notes App</h1>
+    </div>
+
+    <div id="name">
+        <textarea name="" id="main_name"></textarea>
+    </div>
+    <div id="discription"><textarea name="" id="description_area"></textarea></div>
+
+    <div id ="Select">
+        
+        <input type="date" name="due"> 
+    
+        <select id="priority">
+            <option value="">Priority…</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+    
+    </div>
+
+    <br>
+
+    <div id="dropdown_select_area">
+        <select id="category">
+            <option value="Work">Work</option>
+            <option value="Home">Home</option>
+            <option value="Others">Others</option>
+        </select>
+
+        <select id="status">
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+    
+        <button id="button">Add Task</button>
+    </div>
+
+    <div id="tasks"></div>
+    
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

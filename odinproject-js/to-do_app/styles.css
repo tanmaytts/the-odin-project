@@ -1,0 +1,294 @@
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #8a8a8a;
+  --border: #e6e6e6;
+  --accent: #4f46e5;
+  --accent-soft: #eef0ff;
+  --danger: #e11d48;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* priority palette: rail / soft fill / ink */
+  --pri-high: #e11d48;
+  --pri-high-soft: #ffe4e6;
+  --pri-high-ink: #be123c;
+  --pri-med: #f59e0b;
+  --pri-med-soft: #fef3c7;
+  --pri-med-ink: #b45309;
+  --pri-low: #10b981;
+  --pri-low-soft: #d1fae5;
+  --pri-low-ink: #047857;
+  --pri-none: #94a3b8;
+  --pri-none-soft: #f1f5f9;
+  --pri-none-ink: #475569;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  max-width: 640px;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 2rem;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin-top: 0.6rem;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+/* --- Form --- */
+#name,
+#discription {
+  margin-bottom: 1rem;
+}
+
+#Select,
+#dropdown_select_area {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+textarea,
+select,
+input[type="date"] {
+  padding: 0.6rem 0.75rem;
+  font: inherit;
+  color: var(--fg);
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 3rem;
+}
+
+select,
+input[type="date"] {
+  flex: 1;
+  min-width: 0;
+}
+
+textarea:hover,
+select:hover,
+input[type="date"]:hover {
+  border-color: #cfcfcf;
+}
+
+textarea:focus,
+select:focus,
+input[type="date"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* Add Task button */
+#button {
+  flex: 1 1 100%;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s var(--ease), box-shadow 0.2s var(--ease),
+    filter 0.2s var(--ease);
+}
+
+#button:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+}
+
+#button:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: var(--shadow-sm);
+}
+
+/* --- Task list --- */
+#tasks {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.task_div {
+  position: relative;
+  padding: 1rem 1.25rem 1rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  animation: task-in 0.35s var(--ease) both;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+/* colored rail on the left edge — color set per priority below */
+.task_div::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--pri-none);
+}
+
+.task_div:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.task_div h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.35rem;
+}
+
+.task_div .desc {
+  margin: 0.15rem 0;
+  font-size: 0.9rem;
+  color: var(--fg);
+}
+
+.task_div .due {
+  margin: 0.15rem 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* --- Badges --- */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.7rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+}
+
+.badge-category {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.badge-status {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* --- Priority-driven coloring --- */
+.task_div[data-priority="high"]::before {
+  background: var(--pri-high);
+}
+.task_div[data-priority="medium"]::before {
+  background: var(--pri-med);
+}
+.task_div[data-priority="low"]::before {
+  background: var(--pri-low);
+}
+.task_div[data-priority="none"]::before {
+  background: var(--pri-none);
+}
+
+.task_div[data-priority="high"] .badge-priority {
+  background: var(--pri-high-soft);
+  color: var(--pri-high-ink);
+}
+.task_div[data-priority="medium"] .badge-priority {
+  background: var(--pri-med-soft);
+  color: var(--pri-med-ink);
+}
+.task_div[data-priority="low"] .badge-priority {
+  background: var(--pri-low-soft);
+  color: var(--pri-low-ink);
+}
+.task_div[data-priority="none"] .badge-priority {
+  background: var(--pri-none-soft);
+  color: var(--pri-none-ink);
+}
+
+/* --- Delete button --- */
+.delete_button {
+  margin-top: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  cursor: pointer;
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease),
+    background 0.2s var(--ease), transform 0.1s var(--ease);
+}
+
+.delete_button:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: #fff1f3;
+}
+
+.delete_button:active {
+  transform: scale(0.95);
+}
+
+@keyframes task-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
